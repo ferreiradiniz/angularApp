@@ -1,4 +1,4 @@
-node_modules
-data
-client\js
-coverage
+node_modules/
+data/
+client/js/
+coverage/

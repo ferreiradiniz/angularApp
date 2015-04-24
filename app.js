@@ -1,14 +1,43 @@
 (function() {
   'use strict';
 
-  var express = require('express');
-  var app = express();
+  var router = require('./app_config.js');
 
-  app.use(express.static(__dirname + '/client'));
+  var db = require('./mongoConfig.js');
 
-  app.listen(8080, function() {
+  // var mongoConfig = require('./mongoConfig');
+  // var mongoose = require('mongoose');
+  // var models_path = __dirname + '/server/models/';
 
-    console.log('Servidor iniciado em\nhttp://localhost:8080/');
-  });
+  // mongoose.connect(mongoConfig.db.test);
+
+  // var con = mongoose.connection;
+
+  // con.on('error', console.error.bind(console, 'DataBase connection error:'));
+
+  // con.once('open', function() {
+  //   console.log('connected to mongodb successfuly!');
+
+  //   app.listen(port, function() {
+
+  //     console.log('Servidor iniciado na porta: ' + port);
+  //   });
+  // });
+  router.route('/tests')
+    .get(function(req, res) {
+      res.json({
+        message: 'Get Api'
+      });
+    })
+    .post(function(req, res) {
+      res.json({
+        message: 'Get Api'
+      });
+    })
+    .get(function(req, res) {
+      res.json({
+        message: 'Get Api'
+      });
+    });
 
 }());

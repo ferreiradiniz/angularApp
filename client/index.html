@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyApp</title>
+</head>
+
+  <!-- Style sheets -->
+  <link rel="stylesheet" href="js/bootstrap/dist/css/bootstrap.css">
+
+  <!-- Lirary Script -->
+  <script src="js/angular/angular.js"></script>
+  <script src="js/angular-resource/angular-resource.js"></script>
+  <script src="js/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="js/angular-mocks/angular-mocks.js"></script>
+
+   <!-- Aplication script -->
+   <script src="app/test/test.module.js"></script>
+   <script src="app/test/test.controller.js"></script>
+   <script src="app/app.js"></script>
+
+<body ng-app="myApp">
+
+  <div class="container">
+    <div ui-view></div>
+  </div>
+
+</body>
+</html>

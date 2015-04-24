@@ -1,0 +1,25 @@
+{
+  "name": "angularApp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ferreiradiniz/angularApp",
+  "description": "Scaffold AngularJS Project",
+  "main": "index.html",
+  "keywords": [
+    "bower",
+    "angularjs"
+  ],
+  "authors": [
+    "Bruno Diniz Ferreira"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.3.15",
+    "angular-resource": "~1.3.15",
+    "angular-ui-router": "~0.2.13",
+    "bootstrap": "~3.3.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.15"
+  }
+}

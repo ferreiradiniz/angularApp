@@ -7,7 +7,12 @@
   var TestSchema = new Schema({
     nome: {
       type: String,
-      trim: true
+      trim: true,
+      required: true
+    },
+    created_at: {
+      type: Date,
+      default: Date.now
     }
   });
 

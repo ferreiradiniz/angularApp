@@ -1,9 +1,11 @@
 (function() {
   'use strict';
 
-  var router = require('./app_config.js');
+  // var router = require('./app_config.js');
 
-  var db = require('./mongoConfig.js');
+  // var db = require('./mongoConfig.js');
+
+  var testRoutes = require('./server/routes/test');
 
   // var mongoConfig = require('./mongoConfig');
   // var mongoose = require('mongoose');
@@ -23,21 +25,21 @@
   //     console.log('Servidor iniciado na porta: ' + port);
   //   });
   // });
-  router.route('/tests')
-    .get(function(req, res) {
-      res.json({
-        message: 'Get Api'
-      });
-    })
-    .post(function(req, res) {
-      res.json({
-        message: 'Get Api'
-      });
-    })
-    .get(function(req, res) {
-      res.json({
-        message: 'Get Api'
-      });
-    });
+  // router.route('/tests')
+  //   .get(function(req, res) {
+  //     res.json({
+  //       message: 'Get Api'
+  //     });
+  //   })
+  //   .post(function(req, res) {
+  //     res.json({
+  //       message: 'Get Api'
+  //     });
+  //   })
+  //   .get(function(req, res) {
+  //     res.json({
+  //       message: 'Get Api'
+  //     });
+  //   });
 
 }());

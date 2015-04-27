@@ -1,17 +1,9 @@
 (function() {
   'use strict';
 
-  var mongoConfig = require('./mongoConfig');
+  // var mongoConfig = require('./mongoConfig');
   var mongoose = require('mongoose');
   var models_path = __dirname + '/server/models/';
-
-  // module.exports = {
-  //   db: {
-  //     production: 'mongodb://localhost/nsa-prod',
-  //     development: 'mongodb://localhost/nsa-dev',
-  //     test: 'mongodb://localhost/nsa-test'
-  //   }
-  // };
 
   var production = 'mongodb://localhost/nsa-prod',
     development = 'mongodb://localhost/nsa-dev',
@@ -25,13 +17,16 @@
 
   con.on('error', console.error.bind(console, 'DataBase connection error:'));
 
-  con.once('open', function() {
+  // If the Node process ends, close the Mongoose connection
+  process.on('SIGINT', function() {
+    mongoose.connection.close(function() {
+      console.log('Mongoose default connection disconnected through app termination');
+      process.exit(0);
+    });
+  });
+
+  con.once('connected', function() {
     console.log('connected to mongodb successfuly!');
-
-    // app.listen(port, function() {
-
-    //   console.log('Servidor iniciado na porta: ' + port);
-    // });
   });
 
 }());

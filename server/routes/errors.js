@@ -19,8 +19,9 @@
   exports.errosPOST = function(res, err, object, message) {
     if (!err) {
       console.info(message);
-      res.statusCode = 200;
-      return res.json(object);
+      res.status(201).send(object);
+      // res.statusCode = 201;
+      // return res.json(object);
     } else {
       console.log(err);
       if (err.name == 'ValidationError') {
@@ -77,6 +78,32 @@
       return res.send({
         error: 'Server error'
       });
+    }
+  };
+
+  exports.errosPUT = function(res, err, object, message) {
+    if (!err) {
+      console.info(message);
+      res.status(200).send(object);
+      // res.statusCode = 201;
+      // return res.json(object);
+    } else {
+      console.log(err);
+      if (err.name == 'ValidationError') {
+        res.status(400).send('Validation error');
+
+        // res.statusCode = 400;
+        // res.send({
+        //   error: 'Validation error'
+        // });
+      } else {
+        res.status(500).send('Server error');
+        // res.statusCode = 500;
+        // res.send({
+        //   error: 'Server error'
+        // });
+      }
+      console.error('Internal error(%d): %s', res.statusCode, err.message);
     }
   };
 

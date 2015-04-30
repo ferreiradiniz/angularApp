@@ -9,34 +9,22 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        // frameworks: ['jasmine'],
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
         files: [
-            //LIBRARIES
-            'client/js/angular/angular.js',
-            'client/js/angular-mocks/angular-mocks.js',
-            'client/js/angular-resource/angular-resource.js',
-            'client/js/angular-ui-router/release/angular-ui-router.js',
-
-            //APP
-            'client/app/app.js',
-            'client/app/**/*.module.js',
-            'client/app/**/*.controller.js',
-            'client/app/**/*_spec.js',
+            'controllers/*js',
+            'models/*Model.js',
+            'routes/*Route.js',
+            'routes/*_Spec.js'
         ],
 
-        browserify: {
-            debug: true
-        },
         // list of files to exclude
         exclude: [],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            // 'client/app/**/*_spec.js': ['browserify'],
             // 'client/app/**/*.js': ['coverage']
         },
 

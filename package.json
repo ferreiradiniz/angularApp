@@ -2,9 +2,10 @@
   "name": "angularApp",
   "version": "1.0.0",
   "description": "Scaffold to AngularJs Project",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app",
+    "test": "mocha server/routes/*_spec.js"
   },
   "repository": {
     "type": "git",
@@ -29,15 +30,25 @@
     "validator": "^3.39.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
+    "chai": "^2.3.0",
+    "frisby": "^0.8.5",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-karma": "^0.10.1",
     "jasmine-core": "^2.2.0",
+    "jasmine-node": "^1.14.5",
     "karma": "^0.12.31",
+    "karma-browserify": "^4.1.2",
+    "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.1.7",
     "karma-coverage": "^0.2.7",
     "karma-jasmine": "^0.3.5",
+    "karma-mocha": "^0.1.10",
     "karma-phantomjs-launcher": "^0.1.4",
-    "karma-spec-reporter": "0.0.19"
+    "karma-sinon": "^1.0.4",
+    "karma-spec-reporter": "0.0.19",
+    "mocha": "^2.2.4",
+    "mongoose": "^4.0.2",
+    "request": "^2.55.0",
+    "sinon": "^1.14.1",
+    "supertest": "^0.15.0"
   }
 }

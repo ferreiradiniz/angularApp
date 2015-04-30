@@ -16,7 +16,7 @@
     }));
 
     it('Deve ter "test" model com 3 historicos', function() {
-      expect(vm.tests.length).toBe(2);
+      expect(vm.tests).to.have.length(2);
     });
 
   });

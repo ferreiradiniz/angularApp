@@ -1,45 +1,45 @@
 (function() {
   'use strict';
 
-  // var router = require('./app_config.js');
+  var express = require('express');
+  var path = require('path');
+  var bodyParser = require('body-parser');
+  var db = require('./mongoConfig');
 
-  // var db = require('./mongoConfig.js');
+  var app = express();
+  var port = process.env.PORT || 8080;
+  var allowCorns = function(req, res, next) {
 
-  var testRoutes = require('./server/routes/test');
+    res.header('Access-Control-Allow-Origin', '127.0.0.1:8080');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Credential', 'true');
+    next();
 
-  // var mongoConfig = require('./mongoConfig');
-  // var mongoose = require('mongoose');
-  // var models_path = __dirname + '/server/models/';
+  };
 
-  // mongoose.connect(mongoConfig.db.test);
+  //Routes BEGIN
+  // var loginRoute = require('./server/routes/loginRoute')();
+  var loginRoute = require('./server/routes/restRoute')('Login');
+  //Routes END
 
-  // var con = mongoose.connection;
+  app.use(allowCorns);
+  // for parsing application/json
+  app.use(bodyParser.json());
+  // for parsing application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+  app.use(express.static(path.join(__dirname, '/client')));
 
-  // con.on('error', console.error.bind(console, 'DataBase connection error:'));
+  app.use('/api/logins', loginRoute);
 
-  // con.once('open', function() {
-  //   console.log('connected to mongodb successfuly!');
+  // app.use(express.static(__dirname + '/client'));
+  app.listen(port, function() {
 
-  //   app.listen(port, function() {
+    console.log('Servidor iniciado na porta: ' + port);
+  });
 
-  //     console.log('Servidor iniciado na porta: ' + port);
-  //   });
-  // });
-  // router.route('/tests')
-  //   .get(function(req, res) {
-  //     res.json({
-  //       message: 'Get Api'
-  //     });
-  //   })
-  //   .post(function(req, res) {
-  //     res.json({
-  //       message: 'Get Api'
-  //     });
-  //   })
-  //   .get(function(req, res) {
-  //     res.json({
-  //       message: 'Get Api'
-  //     });
-  //   });
+  module.exports = app;
 
 }());

@@ -10,7 +10,7 @@ module.exports = function(config) {
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         // frameworks: ['jasmine'],
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['mocha', 'chai', 'browserify'],
 
         // list of files / patterns to load in the browser
         files: [
@@ -24,6 +24,12 @@ module.exports = function(config) {
             'client/app/app.js',
             'client/app/**/*.module.js',
             'client/app/**/*.controller.js',
+            'client/app/**/services/*.services.js',
+            'client/app/**/services/*.resource.js',
+            'client/app/**/services/*.resourceMock.js',
+            // 'client/app/**/services/*.resource.js',
+            // 'client/app/**/services/*.resourceMock.js',
+            // 'client/app/**/services/*.services.js',
             'client/app/**/*_spec.js',
         ],
 
@@ -36,7 +42,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            // 'client/app/**/*_spec.js': ['browserify'],
+            'client/app/**/services/*.resourceMock.js': ['browserify'],
             // 'client/app/**/*.js': ['coverage']
         },
 

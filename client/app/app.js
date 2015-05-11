@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('myApp', ['test.module']);
+  angular.module('myApp', ['login.module']);
 
 }());

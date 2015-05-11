@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app",
-    "test": "mocha server/routes/*_spec.js"
+    "test": "mocha server/routes/*_spec.js",
+    "git": "git push origin master"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,6 @@
   },
   "devDependencies": {
     "chai": "^2.3.0",
-    "frisby": "^0.8.5",
     "grunt-contrib-watch": "^0.6.1",
     "jasmine-core": "^2.2.0",
     "jasmine-node": "^1.14.5",

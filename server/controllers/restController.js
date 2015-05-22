@@ -1,6 +1,9 @@
 (function() {
   'use strict';
   var validator = require('validator');
+  var statusHandler = require('express-mongoose-status');
+
+  var acents = require('../utils.js');
 
   var restController = function(MyObject) {
 
@@ -18,7 +21,17 @@
         delete req.query._id;
       }
       for (var p in req.query) {
-        query[p] = req.query[p];
+
+        switch (isNaN(req.query[p])) {
+          case true:
+            var str = acents(req.query[p]);
+            query[p] = new RegExp(str, 'i');
+            break;
+          case false:
+            query[p] = req.query[p];
+            break;
+        }
+
       }
       // if (req.query.nome) {
       //   console.log(req.query);
@@ -26,6 +39,8 @@
       //   query.nome = new RegExp(req.query.nome, 'i');
       // }
       MyObject.find(query, function(err, docs) {
+
+        // statusHandler(err, res, docs);
         if (err) {
           res.status(500).send(err);
         } else {

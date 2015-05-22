@@ -3,6 +3,8 @@
 
   var express = require('express'); //
   var validator = require('validator');
+  var statusHandler = require('express-mongoose-status');
+
   // var Login = require('../models/loginModel').model;
   // var loginController = require('../controllers/restController')(Login);
 
@@ -23,14 +25,16 @@
 
       MyObject.findById(id, function(err, doc) {
 
-        if (err) {
-          res.status(500).send(err);
-        } else if (doc) {
-          req.doc = doc;
-          next();
-        } else {
-          res.status(404).send('No found');
-        }
+        statusHandler(err, res, doc);
+
+        // if (err) {
+        //   res.status(500).send(err);
+        // } else if (doc) {
+        //   req.doc = doc;
+        //   next();
+        // } else {
+        //   res.status(404).send('No found');
+        // }
 
       });
     });

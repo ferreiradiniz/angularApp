@@ -39,6 +39,12 @@
       clearDB();
 
       addObject({
+        "name": "Agóra vâi sèr",
+        "password": "get123",
+        "age": 32
+      });
+
+      addObject({
         "name": "Test Get",
         "password": "get123",
         "age": 32
